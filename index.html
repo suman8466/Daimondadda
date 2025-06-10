@@ -2,49 +2,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>COD - DaimondAdda</title>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #f7f7f7; padding: 40px; }
-        .card { background: white; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 20px; max-width: 400px; margin: auto; }
-        h2 { color: #ff4500; }
-        input, select { width: 100%; padding: 10px; margin: 10px 0; border-radius: 8px; border: 1px solid #ccc; }
-        button { background: #ff4500; color: white; padding: 10px; width: 100%; border: none; border-radius: 8px; font-size: 16px; }
-        .note { font-size: 12px; color: #555; margin-top: 10px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DaimondAdda - Buy Free Fire Diamonds</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #0f0f0f;
+      color: white;
+    }
+    header {
+      background: linear-gradient(90deg, #ff3c00, #ff9000);
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      color: #fff;
+    }
+    .notice {
+      background: #ff0000;
+      padding: 10px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .container {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .diamond-pack {
+      background: #1a1a1a;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 10px;
+      width: 80%;
+      text-align: center;
+      border: 2px solid #ff6600;
+    }
+    .diamond-pack h3 {
+      margin: 10px 0;
+      color: #ffd700;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 80%;
+      max-width: 400px;
+      background: #121212;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 20px;
+      border: 1px solid #333;
+    }
+    form input, form button {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+    }
+    form input {
+      background: #222;
+      color: white;
+    }
+    form button {
+      background: #ff6600;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .message-box {
+      display: none;
+      background: #1a1a1a;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 10px;
+      color: #0f0;
+      border: 2px solid #0f0;
+      font-size: 14px;
+    }
+    .section-title {
+      font-size: 20px;
+      margin-top: 40px;
+      color: #ffcc00;
+    }
+    img.qr {
+      margin-top: 15px;
+      width: 180px;
+      border: 4px solid #fff;
+      border-radius: 12px;
+    }
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      font-size: 12px;
+      text-align: center;
+      color: #aaa;
+    }
+  </style>
 </head>
 <body>
-    <div class="card">
-        <h2>COD Order Form</h2>
-        <form onsubmit="return submitCOD();">
-            <label>Free Fire UID:</label>
-            <input type="text" required placeholder="Enter UID" />
+  <header>
+    🔥 DaimondAdda 🔥<br/>
+    Buy Free Fire Diamonds Instantly!
+  </header>
 
-            <label>Email:</label>
-            <input type="email" required placeholder="Enter your email" />
+  <div class="notice">
+    ⚠️ Note: Diamonds will be delivered within 24 hours. Keep your transaction ID safe.
+  </div>
 
-            <label>Plan:</label>
-            <input type="text" value="Normal Plan - ₹60 + COD Charges" readonly />
-
-            <label>Do you live in Pirokhar, Bihar?</label>
-            <select required>
-                <option value="yes">Yes</option>
-                <option value="no">No (COD not allowed)</option>
-            </select>
-
-            <label>CAPTCHA: 2 + 3 = ?</label>
-            <input type="text" required placeholder="Answer" />
-
-            <button type="submit">Place COD Order</button>
-            <p class="note">Note: COD available only in Pirokhar. ₹10 extra charge for orders below ₹1000.</p>
-        </form>
+  <div class="container">
+    <div class="diamond-pack">
+      <h3>💎 100 Diamonds - ₹55</h3>
+      <p>Click below to pay</p>
     </div>
 
-    <script>
-        function submitCOD() {
-            alert("Your COD request has been received. You will be contacted soon via email.");
-            return false; // Prevent actual submission
-        }
-    </script>
+    <form id="paymentForm">
+      <input type="text" id="uid" placeholder="Enter Free Fire UID" required>
+      <input type="email" id="email" placeholder="Enter your Email" required>
+      <input type="text" id="captcha" placeholder="Enter CAPTCHA" required>
+      <button type="submit">Proceed to Payment</button>
+    </form>
+
+    <img src="qr.png" alt="QR Code" class="qr" />
+
+    <div class="message-box" id="confirmation">
+      ✅ Congratulations! Aapka payment successful.<br/>
+      🆔 Transaction ID: <span id="txnId"></span><br/>
+      📩 Aapko diamond 24 hours ke andar mil jayega.
+    </div>
+
+    <div class="section-title">💼 Cash On Daimond (COD) - Only For Pirokhar, Bihar</div>
+    <form id="codForm">
+      <input type="text" placeholder="Enter Full Name" required>
+      <input type="text" id="codUid" placeholder="Enter Free Fire UID" required>
+      <input type="email" id="codEmail" placeholder="Enter your Email" required>
+      <input type="text" id="codAddress" placeholder="Enter your Address" required>
+      <button type="submit">Submit COD Request</button>
+    </form>
+
+    <div class="section-title">🎟 Lucky Draw Voucher Entry</div>
+    <form id="voucherForm">
+      <input type="text" id="voucherCode" placeholder="Enter 6-Digit Voucher Code" required>
+      <input type="text" id="voucherUid" placeholder="Enter UID" required>
+      <input type="email" id="voucherEmail" placeholder="Enter Email" required>
+      <button type="submit">Submit Voucher</button>
+    </form>
+  </div>
+
+  <footer>
+    Help Centre: daimondaddahelpcentre@gmail.com<br/>
+    Contact: daimondaddacontact@gmail.com<br/>
+    COD: Only for Pirokhar, Bihar | Extra ₹10–₹12 charges<br/>
+    Lucky Draw Results announced every 1st of the month
+  </footer>
+
+  <script>
+    document.getElementById('paymentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const txnId = 'DAA' + Math.floor(Math.random() * 1000000);
+      document.getElementById('txnId').textContent = txnId;
+      document.getElementById('confirmation').style.display = 'block';
+      const details = {
+        uid: document.getElementById('uid').value,
+        email: document.getElementById('email').value,
+        txnId: txnId
+      };
+      console.log('Send to admin email:', details);
+      alert('Your request has been submitted. Check confirmation below.');
+    });
+
+    document.getElementById('codForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const address = document.getElementById('codAddress').value.toLowerCase();
+      if (!address.includes('pirokhar')) {
+        alert('COD is only available for users from Pirokhar, Bihar.');
+        return;
+      }
+      alert('COD request received. Admin will contact you within 5 hours.');
+      const codDetails = {
+        uid: document.getElementById('codUid').value,
+        email: document.getElementById('codEmail').value,
+        address: address
+      };
+      console.log('Send COD info to cod email:', codDetails);
+    });
+
+    document.getElementById('voucherForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const voucherDetails = {
+        code: document.getElementById('voucherCode').value,
+        uid: document.getElementById('voucherUid').value,
+        email: document.getElementById('voucherEmail').value
+      };
+      alert('Voucher submitted. Stay tuned for results on 1st of the month.');
+      console.log('Send to lucky draw email:', voucherDetails);
+    });
+  </script>
 </body>
 </html>
