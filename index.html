@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COD - DaimondAdda</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f7f7f7; padding: 40px; }
+        .card { background: white; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 20px; max-width: 400px; margin: auto; }
+        h2 { color: #ff4500; }
+        input, select { width: 100%; padding: 10px; margin: 10px 0; border-radius: 8px; border: 1px solid #ccc; }
+        button { background: #ff4500; color: white; padding: 10px; width: 100%; border: none; border-radius: 8px; font-size: 16px; }
+        .note { font-size: 12px; color: #555; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>COD Order Form</h2>
+        <form onsubmit="return submitCOD();">
+            <label>Free Fire UID:</label>
+            <input type="text" required placeholder="Enter UID" />
+
+            <label>Email:</label>
+            <input type="email" required placeholder="Enter your email" />
+
+            <label>Plan:</label>
+            <input type="text" value="Normal Plan - ₹60 + COD Charges" readonly />
+
+            <label>Do you live in Pirokhar, Bihar?</label>
+            <select required>
+                <option value="yes">Yes</option>
+                <option value="no">No (COD not allowed)</option>
+            </select>
+
+            <label>CAPTCHA: 2 + 3 = ?</label>
+            <input type="text" required placeholder="Answer" />
+
+            <button type="submit">Place COD Order</button>
+            <p class="note">Note: COD available only in Pirokhar. ₹10 extra charge for orders below ₹1000.</p>
+        </form>
+    </div>
+
+    <script>
+        function submitCOD() {
+            alert("Your COD request has been received. You will be contacted soon via email.");
+            return false; // Prevent actual submission
+        }
+    </script>
+</body>
+</html>
